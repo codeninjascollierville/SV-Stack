@@ -39,7 +39,7 @@ public class GameController : MonoBehaviour
             
             currentCube.transform.localscale = new Vector3(lastCube.transform.localscale.x - Mathf.Abs(currentCube.transform.position.x - lastCube.transform.position.x),
                                                             lastCube.transform.localscale.y,
-                                                           lastCube.transform.localscale.z - Mathf.Abs(currentCube.transform.position.z - lastCube.transform.position.z)),
+                                                           lastCube.transform.localscale.z - Mathf.Abs(currentCube.transform.position.z - lastCube.transform.position.z));
             
             currentCube.transform.position = Vector3.Lerp(currentCube.transform.position, lastCube.transform.position, 0.5f) + Vector3.up * 5f;
 
@@ -53,5 +53,27 @@ public class GameController : MonoBehaviour
                     return;
                 }
         }
+    
+    lastCube = currentCube;
+    currentCube = Instantiate(lastCube);
+    currentCube.name = Level + "";
+    currentCube.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.HSVToRGB((Level / 100f) % 1f, 1f, 1f));
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     }
 }
